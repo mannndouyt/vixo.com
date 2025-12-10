@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <base target="_self">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vixo Store - حامل هاتف مغناطيسي K007</title>
+    <meta name="description" content="حامل هاتف مغناطيسي قوي جديد K007، قابل للطي بزاوية 360°، مع قاعدة شفط">
+    <meta name="keywords" content="حامل هاتف, مغناطيسي, K007, قاعدة شفط, سيارة, مكتب">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#143214",
+                        secondary: "#6ce084",
+                        accent: "#a4f0d7",
+                        dark: "#133213",
+                        light: "#a2eb84",
+                        shipping: "#52c244"
+                    },
+                    fontFamily: {
+                        'arabic': ['"Noto Sans Arabic"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Noto Sans Arabic', sans-serif;
+            background-color: #f8f9fa;
+        }
+        
+        .product-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(20, 50, 20, 0.15);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #143214 0%, #133213 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #133213 0%, #091209 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(20, 50, 20, 0.2);
+        }
+        
+        .shipping-badge {
+            background: linear-gradient(135deg, #52c244 0%, #8de361 100%);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .gallery-container {
+            display: flex;
+            flex-direction: column;
+            height: 500px;
+        }
+        
+        .main-image {
+            flex: 1;
+            overflow: hidden;
+            border-radius: 12px;
+            background: #f1f1f1;
+        }
+        
+        .main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .thumbnails {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            overflow-x: auto;
+            padding: 10px 0;
+        }
+        
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .thumbnail:hover {
+            transform: scale(1.1);
+            border-color: #6ce084;
+        }
+        
+        .thumbnail.active {
+            border-color: #143214;
+            transform: scale(1.05);
+        }
+        
+        .feature-icon {
+            color: #6ce084;
+            margin-left: 8px;
+        }
+        
+        .price-tag {
+            background: linear-gradient(135deg, #a4f0d7 0%, #83ecce 100%);
+            border-radius: 8px;
+        }
+        
+        /* تحسين جودة الصور المصغرة */
+        .thumbnail {
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+        }
+        
+        /* تحسين عرض الصورة المصغرة في البطاقة */
+        .product-image-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+        
+        .product-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background-color: #f9f9f9;
+        }
+        
+        /* تنسيقات صفحة الطلب */
+        .order-form-section {
+            background: linear-gradient(to bottom, #143214, #0e1c0c);
+            border-radius: 15px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            border: 1px solid #364836;
+            position: relative;
+            transition: all 0.3s ease;
+            max-width: 600px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        
+        .form-title {
+            color: #8de361;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            text-align: center;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #406255;
+        }
+        
+        .product-info-order {
+            background: rgba(36, 72, 54, 0.5);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 1px solid #71938e;
+            text-align: center;
+        }
+        
+        .product-name-order {
+            color: #a2eb84;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+        
+        .product-price-order {
+            color: #8de361;
+            font-size: 1.6rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .shipping-note-order {
+            color: #83ecce;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+        
+        .shipping-note-order i {
+            color: #6ce084;
+            margin-left: 5px;
+        }
+        
+        .form-group-order {
+            margin-bottom: 25px;
+        }
+        
+        .form-group-order label {
+            display: block;
+            color: #a4f0d7;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group-order input {
+            width: 100%;
+            padding: 14px;
+            background-color: #25361a;
+            border: 1px solid #587d68;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .form-group-order input:focus {
+            outline: none;
+            border-color: #6ce084;
+            box-shadow: 0 0 0 2px rgba(108, 224, 132, 0.3);
+        }
+        
+        .quantity-section-order {
+            background: rgba(36, 72, 54, 0.5);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 25px 0;
+            border: 1px solid #71938e;
+        }
+        
+        .quantity-control-order {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+        
+        .quantity-btn-order {
+            background-color: #3a5944;
+            color: #fff;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 8px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .quantity-btn-order:hover {
+            background-color: #52c244;
+        }
+        
+        .quantity-display-order {
+            font-size: 1.5rem;
+            color: #8de361;
+            font-weight: bold;
+            min-width: 60px;
+            text-align: center;
+        }
+        
+        .price-calc-order {
+            background: rgba(10, 18, 9, 0.7);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 15px;
+            text-align: center;
+            border: 1px solid #566256;
+        }
+        
+        .price-info-order {
+            color: #a4f0d7;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        
+        .total-price-order {
+            font-size: 1.6rem;
+            color: #8de361;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        
+        .submit-btn-order {
+            background: linear-gradient(to right, #52c244, #6ce084);
+            color: #091209;
+            border: none;
+            padding: 18px;
+            width: 100%;
+            border-radius: 10px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(108, 224, 132, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .submit-btn-order:hover {
+            background: linear-gradient(to right, #3a5944, #52c244);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(108, 224, 132, 0.4);
+        }
+        
+        .loading-order {
+            display: none;
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .spinner-order {
+            border: 4px solid #25361a;
+            border-top: 4px solid #52c244;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .success-message-order {
+            display: none;
+            text-align: center;
+            background: rgba(36, 72, 54, 0.8);
+            border-radius: 10px;
+            padding: 30px;
+            margin-top: 20px;
+            border: 2px solid #6ce084;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .success-icon-order {
+            font-size: 4rem;
+            color: #8de361;
+            margin-bottom: 20px;
+            animation: scaleCheck 0.5s ease;
+        }
+        
+        .success-text-order {
+            color: #a4f0d7;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        
+        .success-details-order {
+            color: #83ecce;
+            font-size: 1rem;
+            line-height: 1.6;
+            background: rgba(10, 18, 9, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            text-align: right;
+            direction: rtl;
+        }
+        
+        .back-btn-order {
+            background: #3a5944;
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        
+        .back-btn-order:hover {
+            background-color: #52c244;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes scaleCheck {
+            0% { transform: scale(0); }
+            70% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        
+        /* تصميم متجاوب */
+        @media (max-width: 768px) {
+            .order-form-section {
+                padding: 30px 20px;
+            }
+            
+            .form-title {
+                font-size: 1.5rem;
+            }
+            
+            .success-icon-order {
+                font-size: 3rem;
+            }
+            
+            .success-text-order {
+                font-size: 1.5rem;
+            }
+        }
+        
+        /* تحسينات للتنقل بين الصفحات */
+        .page-section {
+            display: none;
+        }
+        
+        .page-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .nav-buttons {
+            margin-bottom: 20px;
+        }
+        
+        .nav-btn {
+            background-color: #143214;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .nav-btn:hover {
+            background-color: #133213;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-50 font-arabic">
+    <!-- الهيدر -->
+    <header class="bg-white shadow-md sticky top-0 z-50" style="background-color: #143214;">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <!-- الشعار -->
+                <div class="flex items-center space-x-3 space-x-reverse">
+                    <div class="w-10 h-10 rounded-lg flex items-center justify-center overflow-hidden bg-white">
+                        <img src="https://i.ibb.co/bM1w-PX6W/logo.png" alt="شعار Vixo Store" class="w-full h-full object-cover">
+                    </div>
+                    <span class="text-xl font-bold text-white hidden md:inline">Vixo Store</span>
+                </div>
+                
+                <!-- اسم المتجر -->
+                <div class="text-right">
+                    <h1 class="text-2xl md:text-3xl font-bold text-white">Vixo Store</h1>
+                    <p class="text-gray-300 text-sm mt-1">متجر منتجات التقنية والإكسسوارات</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- زر العودة للصفحة الرئيسية (يظهر فقط في صفحات المنتج والطلب) -->
+        <div class="nav-buttons hidden" id="nav-buttons">
+            <button id="back-to-home" class="nav-btn">
+                <i class="fas fa-arrow-right ml-2"></i>
+                العودة للمتجر
+            </button>
+        </div>
+        
+        <!-- قسم المنتجات الرئيسي -->
+        <section id="products-section" class="page-section active">
+            <div class="mb-10 text-center">
+                <h2 class="text-3xl font-bold mb-3" style="color: #143214;">منتجاتنا المميزة</h2>
+                <p class="max-w-2xl mx-auto" style="color: #566256;">اكتشف أفضل المنتجات التقنية بجودة عالية وسعر مميز</p>
+            </div>
+            
+            <!-- شبكة المنتجات -->
+            <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- سيتم ملء المنتجات بواسطة JavaScript -->
+            </div>
+        </section>
+        
+        <!-- صفحة المنتج التفصيلية -->
+        <section id="product-detail-section" class="page-section">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- معرض الصور على اليمين -->
+                <div class="lg:order-2">
+                    <div class="gallery-container">
+                        <div class="main-image">
+                            <img id="product-image-large" src="" alt="" class="w-full h-full" loading="lazy">
+                        </div>
+                        
+                        <!-- معرض الصور المصغرة -->
+                        <div class="thumbnails" id="product-thumbnails">
+                            <!-- سيتم ملء الصور بواسطة JavaScript -->
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- تفاصيل المنتج على اليسار -->
+                <div class="lg:order-1">
+                    <h1 id="product-title" class="text-3xl font-bold mb-4" style="color: #143214;"></h1>
+                    
+                    <!-- السعر -->
+                    <div class="mb-6">
+                        <div class="price-tag inline-block px-6 py-3">
+                            <span id="product-price" class="text-2xl font-bold" style="color: #133213;"></span>
+                        </div>
+                    </div>
+                    
+                    <!-- زر الشراء -->
+                    <div class="mb-6">
+                        <button id="buy-now-button" class="btn-primary text-white font-bold py-4 px-8 rounded-lg text-lg w-full shadow-lg mb-3">
+                            <i class="fas fa-shopping-cart ml-2"></i>
+                            شراء الآن
+                        </button>
+                        
+                        <!-- ملاحظة الشحن المجاني -->
+                        <div class="shipping-badge text-white font-bold py-3 px-6 rounded-lg text-center">
+                            <i class="fas fa-shipping-fast ml-2"></i>
+                            الشحن مجاني لجميع أنحاء الجزائر
+                        </div>
+                    </div>
+                    
+                    <!-- الميزات -->
+                    <div class="mb-8">
+                        <h3 class="text-xl font-semibold mb-3" style="color: #143214;">مميزات المنتج</h3>
+                        <ul class="space-y-2">
+                            <li class="flex items-center">
+                                <i class="fas fa-magnet feature-icon"></i>
+                                <span style="color: #364836;">مغناطيس قوي يثبت الهاتف بإحكام</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-sync-alt feature-icon"></i>
+                                <span style="color: #364836;">قابل للطي وتدوير 360 درجة</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-wind feature-icon"></i>
+                                <span style="color: #364836;">قاعدة شفط قوية (Suction Cup)</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-car feature-icon"></i>
+                                <span style="color: #364836;">مناسب للسيارة والمكتب والحمام</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-mobile-alt feature-icon"></i>
+                                <span style="color: #364836;">متوافق مع جميع الهواتف الذكية</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- الوصف -->
+                    <div class="mb-8">
+                        <h3 class="text-xl font-semibold mb-3" style="color: #143214;">وصف المنتج</h3>
+                        <div id="product-description" class="leading-relaxed" style="color: #406255; line-height: 1.8;">
+                            <!-- سيتم ملء الوصف بواسطة JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- صفحة نموذج الطلب -->
+        <section id="order-form-section" class="page-section">
+            <div class="order-form-section">
+                <h2 class="form-title">استمارة طلب حامل مغناطيسي قوي K007</h2>
+                
+                <div class="product-info-order">
+                    <div class="product-name-order" id="order-product-name">حامل مغناطيسي قوي K007</div>
+                    <div class="product-price-order" id="order-product-price">2600.00 DA</div>
+                    <div class="shipping-note-order">
+                        <i class="fas fa-truck"></i>
+                        الشحن مجاني لكل الولايات
+                    </div>
+                </div>
+                
+                <form id="orderForm">
+                    <div class="form-group-order">
+                        <label for="firstName">الاسم <span style="color: #8de361;">*</span></label>
+                        <input type="text" id="firstName" name="firstName" required placeholder="أدخل اسمك">
+                    </div>
+                    
+                    <div class="form-group-order">
+                        <label for="lastName">اللقب <span style="color: #8de361;">*</span></label>
+                        <input type="text" id="lastName" name="lastName" required placeholder="أدخل لقبك">
+                    </div>
+                    
+                    <div class="form-group-order">
+                        <label for="state">الولاية <span style="color: #8de361;">*</span></label>
+                        <input type="text" id="state" name="state" required placeholder="أدخل ولايتك">
+                    </div>
+                    
+                    <div class="form-group-order">
+                        <label for="city">البلدية <span style="color: #8de361;">*</span></label>
+                        <input type="text" id="city" name="city" required placeholder="أدخل بلديتك">
+                    </div>
+                    
+                    <div class="form-group-order">
+                        <label for="phone">رقم الهاتف <span style="color: #8de361;">*</span></label>
+                        <input type="tel" id="phone" name="phone" required placeholder="مثال: 05XX-XX-XX-XX">
+                    </div>
+                    
+                    <div class="quantity-section-order">
+                        <label for="quantity">عدد الطلبيات <span style="color: #8de361;">*</span></label>
+                        
+                        <div class="quantity-control-order">
+                            <button type="button" class="quantity-btn-order" id="decreaseQty">-</button>
+                            <div class="quantity-display-order" id="quantityDisplay">1</div>
+                            <input type="hidden" id="quantity" name="quantity" value="1">
+                            <button type="button" class="quantity-btn-order" id="increaseQty">+</button>
+                        </div>
+                        
+                        <div class="price-calc-order">
+                            <div class="price-info-order">السعر الإجمالي:</div>
+                            <div class="total-price-order" id="totalPrice">2600.00 DA</div>
+                        </div>
+                    </div>
+                    
+                    <div class="loading-order" id="loading">
+                        <div class="spinner-order"></div>
+                        <p>جاري إرسال الطلب...</p>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn-order" id="submitBtn">
+                        <i class="fas fa-paper-plane" style="margin-left: 10px;"></i>
+                        تأكيد الطلب
+                    </button>
+                </form>
+                
+                <!-- رسالة النجاح -->
+                <div class="success-message-order" id="successMessage">
+                    <div class="success-icon-order">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="success-text-order">تم إرسال طلبك!</div>
+                    <div class="success-details-order" id="successDetails">
+                        سيتم التواصل معك في أقرب وقت لتأكيد الطلب.<br>
+                        شكراً لثقتك بنا!
+                    </div>
+                    <button class="back-btn-order" id="backBtn">
+                        <i class="fas fa-undo" style="margin-left: 8px;"></i>
+                        العودة للمتجر
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- الفوتر -->
+    <footer class="text-white mt-16" style="background-color: #133213;">
+        <div class="container mx-auto px-4 py-8">
+            <div class="text-center">
+                <!-- رابط الانستغرام فقط -->
+                <div class="mb-6">
+                    <h3 class="text-xl font-bold mb-4" style="color: #a2eb84;">تابعنا على الانستغرام</h3>
+                    <a href="https://www.instagram.com/vixo._store" target="_blank" class="inline-flex items-center justify-center w-12 h-12 rounded-full hover:opacity-90 transition-opacity" style="background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);">
+                        <i class="fab fa-instagram text-white text-xl"></i>
+                    </a>
+                    <p class="mt-2">
+                        <a href="https://www.instagram.com/vixo._store" target="_blank" class="hover:underline" style="color: #a4f0d7;">
+                            @vixo._store
+                        </a>
+                    </p>
+                </div>
+            </div>
+            
+            <!-- حقوق النشر -->
+            <div class="border-t mt-8 pt-8 text-center" style="border-color: #274836;">
+                <p style="color: #8c8c8c;">© 2024 Vixo Store. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // تعريف بيانات المنتجات
+        const products = [
+            {
+                "id": 1,
+                "name": "حامل هاتف مغناطيسي قوي K007",
+                "price": "2600.00 DA",
+                "description": `
+                    <p class="mb-4"><strong>حامل هاتف مغناطيسي قوي جديد K007</strong>، قابل للطي بزاوية 360°، مع قاعدة شفط، مناسب للسيارة والمكتب والحمّام وللاستخدام العام.</p>
+                    
+                    <p class="mb-3"><strong>✅ الشرح والتوضيح:</strong></p>
+                    
+                    <p class="mb-2"><strong>Strong Magnetic</strong></p>
+                    <p class="mb-3">يعني أن الحامل يحتوي على مغناطيس قوي يثبت الهاتف بإحكام دون أن يقع، حتى أثناء القيادة أو الاهتزاز.</p>
+                    
+                    <p class="mb-2"><strong>Foldable 360°</strong></p>
+                    <p class="mb-3">قابل للطي ويمكن تدويره 360 درجة، أي يمكنك تحريك الهاتف لأي اتجاه (أعلى، أسفل، يمين، يسار).</p>
+                    
+                    <p class="mb-2"><strong>Vacuum Stand</strong></p>
+                    <p class="mb-3">قاعدة شفط قوية (Suction Cup) تثبت الحامل على الأسطح مثل زجاج السيارة أو المكتب أو البلاط.</p>
+                    
+                    <p class="mb-2"><strong>Suitable for Car / Desk / Bathroom / Universal</strong></p>
+                    <p class="mb-1">يعني أنك تستطيع استخدامه في:</p>
+                    <ul class="list-disc mr-4 space-y-1 mb-3">
+                        <li>السيارة</li>
+                        <li>المكتب</li>
+                        <li>الحمّام</li>
+                        <li>أو أي سطح أملس</li>
+                    </ul>
+                    <p>لأنه مناسب لكل الأجهزة (Universal) مثل هواتف آيفون وسامسونغ وغيرهم.</p>
+                `,
+                "image": "https://i.ibb.co/h0DhFM0/7.png",
+                "galleryImages": [
+                    "https://i.ibb.co/h0DhFM0/7.png",
+                    "https://i.ibb.co/MybxFJvz/1.png",
+                    "https://i.ibb.co/R4SZ22Nd/2.png",
+                    "https://i.ibb.co/jk2GdYBD/3.png",
+                    "https://i.ibb.co/4RnfpRz5/4.png",
+                    "https://i.ibb.co/HTnXZFWs/5.png",
+                    "https://i.ibb.co/zT7WqPGQ/6.png"
+                ]
+            }
+        ];
+
+        // عناصر DOM
+        const productsGrid = document.getElementById("products-grid");
+        const productDetailSection = document.getElementById("product-detail-section");
+        const productsSection = document.getElementById("products-section");
+        const orderFormSection = document.getElementById("order-form-section");
+        const navButtons = document.getElementById("nav-buttons");
+        const backToHomeBtn = document.getElementById("back-to-home");
+        const productImageLarge = document.getElementById("product-image-large");
+        const productTitle = document.getElementById("product-title");
+        const productPrice = document.getElementById("product-price");
+        const productDescription = document.getElementById("product-description");
+        const buyNowButton = document.getElementById("buy-now-button");
+        const productThumbnails = document.getElementById("product-thumbnails");
+        
+        // عناصر نموذج الطلب
+        const orderProductName = document.getElementById("order-product-name");
+        const orderProductPrice = document.getElementById("order-product-price");
+        const basePrice = 2600.00;
+        const additionalPrice = 2000.00;
+        let quantity = 1;
+        
+        // دالة لإنشاء بطاقة منتج
+        function createProductCard(product) {
+            return `
+                <div class="product-card bg-white rounded-xl shadow-md overflow-hidden" onclick="viewProductDetail(${product.id})">
+                    <div class="product-image-container">
+                        <img 
+                            src="${product.image}" 
+                            alt="${product.name}" 
+                            class="w-full h-full"
+                            loading="lazy"
+                        >
+                        <div class="absolute top-3 left-3 text-white px-3 py-1 rounded-full text-sm font-semibold" style="background-color: #52c244;">
+                            الأكثر مبيعاً
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-lg font-bold mb-2 line-clamp-1" style="color: #143214;">${product.name}</h3>
+                        <p class="text-sm mb-3 line-clamp-2" style="color: #566256;">حامل هاتف مغناطيسي قوي مع قاعدة شفط، قابل للطي 360°</p>
+                        <div class="flex items-center justify-between mt-4">
+                            <span class="text-xl font-bold" style="color: #133213;">${product.price}</span>
+                            <div class="text-xs px-2 py-1 rounded" style="background-color: #a4f0d7; color: #133213;">
+                                اضغط لعرض المنتج
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // دالة لعرض معرض الصور المصغرة
+        function createThumbnails(images, mainImage) {
+            return images.map((img, index) => `
+                <img 
+                    src="${img}" 
+                    alt="صورة ${index + 1} للمنتج" 
+                    class="thumbnail ${img === mainImage ? 'active' : ''}"
+                    onclick="changeMainImage('${img}', this)"
+                    loading="lazy"
+                >
+            `).join("");
+        }
+
+        // دالة لتغيير الصورة الرئيسية
+        function changeMainImage(src, clickedThumbnail) {
+            productImageLarge.src = src;
+            
+            document.querySelectorAll('.thumbnail').forEach(thumb => {
+                thumb.classList.remove('active');
+            });
+            
+            if (clickedThumbnail) {
+                clickedThumbnail.classList.add('active');
+            }
+        }
+
+        // دالة لعرض صفحة المنتج التفصيلية
+        function viewProductDetail(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            productImageLarge.src = product.image;
+            productImageLarge.alt = product.name;
+            productTitle.textContent = product.name;
+            productPrice.textContent = product.price;
+            productDescription.innerHTML = product.description;
+            
+            productThumbnails.innerHTML = createThumbnails(product.galleryImages, product.image);
+            
+            // تحديث زر الشراء
+            buyNowButton.onclick = () => {
+                showOrderForm(product);
+            };
+
+            showSection('product-detail-section');
+        }
+
+        // دالة لعرض نموذج الطلب
+        function showOrderForm(product) {
+            orderProductName.textContent = product.name;
+            orderProductPrice.textContent = product.price;
+            showSection('order-form-section');
+        }
+
+        // دالة للتحكم في إظهار الأقسام
+        function showSection(sectionId) {
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            document.getElementById(sectionId).classList.add('active');
+            
+            if (sectionId === 'products-section') {
+                navButtons.classList.add('hidden');
+            } else {
+                navButtons.classList.remove('hidden');
+            }
+        }
+
+        // دالة للعودة إلى المنتجات
+        function backToProducts() {
+            showSection('products-section');
+        }
+
+        // تهيئة المتجر
+        function initializeStore() {
+            productsGrid.innerHTML = products.map(product => createProductCard(product)).join("");
+            
+            backToHomeBtn.addEventListener("click", backToProducts);
+            
+            // تهيئة متغيرات الطلب
+            const quantityDisplay = document.getElementById('quantityDisplay');
+            const quantityInput = document.getElementById('quantity');
+            const totalPriceElement = document.getElementById('totalPrice');
+            const decreaseBtn = document.getElementById('decreaseQty');
+            const increaseBtn = document.getElementById('increaseQty');
+            const loadingElement = document.getElementById('loading');
+            const submitBtn = document.getElementById('submitBtn');
+            const orderForm = document.getElementById('orderForm');
+            const successMessage = document.getElementById('successMessage');
+            const successDetails = document.getElementById('successDetails');
+            const backBtn = document.getElementById('backBtn');
+            
+            quantity = 1;
+            
+            function updatePrice() {
+                let totalPrice = basePrice;
+                if (quantity > 1) {
+                    totalPrice += (quantity - 1) * additionalPrice;
+                }
+                
+                quantityDisplay.textContent = quantity;
+                quantityInput.value = quantity;
+                totalPriceElement.textContent = totalPrice.toFixed(2) + ' DA';
+            }
+            
+            decreaseBtn.addEventListener('click', () => {
+                if (quantity > 1) {
+                    quantity--;
+                    updatePrice();
+                }
+            });
+            
+            increaseBtn.addEventListener('click', () => {
+                quantity++;
+                updatePrice();
+            });
+            
+            // معالجة نموذج الطلب
+            orderForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const requiredFields = ['firstName', 'lastName', 'state', 'city', 'phone'];
+                let isValid = true;
+                
+                for (const field of requiredFields) {
+                    const input = document.getElementById(field);
+                    if (!input.value.trim()) {
+                        input.style.borderColor = '#ff6b6b';
+                        isValid = false;
+                    } else {
+                        input.style.borderColor = '#587d68';
+                    }
+                }
+                
+                if (!isValid) {
+                    alert('يرجى ملء جميع الحقول المطلوبة');
+                    return;
+                }
+                
+                submitBtn.disabled = true;
+                loadingElement.style.display = 'block';
+                
+                const formData = {
+                    firstName: document.getElementById('firstName').value,
+                    lastName: document.getElementById('lastName').value,
+                    state: document.getElementById('state').value,
+                    city: document.getElementById('city').value,
+                    phone: document.getElementById('phone').value,
+                    quantity: quantity,
+                    totalPrice: parseFloat(totalPriceElement.textContent),
+                    productName: orderProductName.textContent
+                };
+                
+                try {
+                    const response = await sendToGoogleSheets(formData);
+                    
+                    if (response.success) {
+                        successDetails.innerHTML = `
+                            <strong>تفاصيل الطلب:</strong><br>
+                            الاسم: ${formData.firstName} ${formData.lastName}<br>
+                            الولاية: ${formData.state}<br>
+                            البلدية: ${formData.city}<br>
+                            رقم الهاتف: ${formData.phone}<br>
+                            المنتج: ${formData.productName}<br>
+                            عدد الطلبيات: ${formData.quantity}<br>
+                            السعر الإجمالي: ${formData.totalPrice.toFixed(2)} DA<br><br>
+                            سيتم التواصل معك في أقرب وقت لتأكيد الطلب.<br>
+                            شكراً لثقتك بنا!
+                        `;
+                        
+                        orderForm.style.display = 'none';
+                        successMessage.style.display = 'block';
+                        
+                    } else {
+                        throw new Error(response.message);
+                    }
+                } catch (error) {
+                    alert(`حدث خطأ أثناء إرسال الطلب: ${error.message}\n\nيرجى المحاولة مرة أخرى أو التواصل معنا.`);
+                } finally {
+                    submitBtn.disabled = false;
+                    loadingElement.style.display = 'none';
+                }
+            });
+            
+            backBtn.addEventListener('click', function() {
+                orderForm.reset();
+                orderForm.style.display = 'block';
+                successMessage.style.display = 'none';
+                quantity = 1;
+                updatePrice();
+                showSection('products-section');
+            });
+            
+            updatePrice();
+        }
+
+        // دالة إرسال البيانات إلى Google Sheets
+        async function sendToGoogleSheets(data) {
+            const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyHqN7U1I5dwetdXeLX-plvhwoxJdNs0cUJ6oTXJIWDCNGcdxfT9XX6Cn0nnF1YkVMePg/exec';
+            
+            const response = await fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'text/plain;charset=utf-8',
+                },
+                body: JSON.stringify(data)
+            });
+            
+            return await response.json();
+        }
+
+        // جعل الدوال متاحة عالميًا
+        window.changeMainImage = changeMainImage;
+        window.viewProductDetail = viewProductDetail;
+
+        // تهيئة المتجر عند تحميل الصفحة
+        document.addEventListener("DOMContentLoaded", initializeStore);
+    </script>
+</body>
+</html>
