@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقع استقبال الصور للأفيديوت القادمة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- رأس الصفحة -->
+        <header>
+            <h1><i class="fas fa-video"></i> موقع استقبال الصور للأفيديوهات القادمة</h1>
+            <p class="subtitle">أرسل صورتك لتظهر في الفيديو القادم</p>
+        </header>
+
+        <!-- قسم النص التوضيحي -->
+        <div class="hero-section">
+            <div class="hero-text">
+                <h2><i class="fas fa-cloud-upload-alt"></i> أرسل الصورة التي تريد أن تظهر في الفيديو القادم</h2>
+                <p>شارك صورتك مع تعليق أو فكرة إبداعية، وسنقوم بإدراجها في الفيديو القادم</p>
+            </div>
+            <div class="hero-icon">
+                <i class="fas fa-photo-video"></i>
+            </div>
+        </div>
+
+        <!-- نموذج الإرسال -->
+        <div class="form-container">
+            <div class="form-header">
+                <h3><i class="fas fa-upload"></i> ارفع صورتك واكتب ملاحظتك</h3>
+            </div>
+            <form id="uploadForm">
+                <!-- حقل رفع الصورة -->
+                <div class="form-group">
+                    <label for="imageUpload"><i class="fas fa-image"></i> اختر الصورة:</label>
+                    <div class="file-upload-area" id="dropArea">
+                        <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                        <p>اسحب وأفلت صورتك هنا أو انقر للاختيار</p>
+                        <input type="file" id="imageUpload" accept="image/*" required>
+                        <div class="file-info" id="fileInfo"></div>
+                    </div>
+                    <div class="image-preview" id="imagePreview"></div>
+                </div>
+
+                <!-- حقل كتابة الملاحظة -->
+                <div class="form-group">
+                    <label for="comment"><i class="fas fa-comment-alt"></i> اكتب ملاحظتك أو فكرتك:</label>
+                    <textarea id="comment" placeholder="اكتب هنا تعليقك أو فكرتك الإبداعية للفيديو..." rows="4" required></textarea>
+                    <div class="char-counter">عدد الأحرف: <span id="charCount">0</span>/200</div>
+                </div>
+
+                <!-- زر الإرسال -->
+                <div class="form-group">
+                    <button type="submit" id="submitBtn">
+                        <i class="fas fa-paper-plane"></i> إرسال للمشاركة في الفيديو
+                    </button>
+                    <p class="form-note">بعد الإرسال، سيتم حفظ صورتك وتعليقك في قاعدة البيانات واستخدامها في الفيديو القادم.</p>
+                </div>
+            </form>
+
+            <!-- حالة الإرسال -->
+            <div id="statusMessage" class="status-message"></div>
+        </div>
+
+        <!-- قسم الإرشادات -->
+        <div class="instructions">
+            <h3><i class="fas fa-info-circle"></i> كيف تعمل المنصة؟</h3>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-icon">1</div>
+                    <h4>ارفع صورة</h4>
+                    <p>اختر صورة من جهازك بجودة مناسبة</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">2</div>
+                    <h4>اكتب تعليق</h4>
+                    <p>أضف ملاحظة أو فكرة إبداعية للفيديو</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">3</div>
+                    <h4>انقر إرسال</h4>
+                    <p>أرسل مشاركتك بكل سهولة</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">4</div>
+                    <h4>شارك في الفيديو</h4>
+                    <p>ستظهر صورتك وتعليقك في الفيديو القادم</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- قسم الإحصائيات (مثال) -->
+        <div class="stats">
+            <h3><i class="fas fa-chart-bar"></i> إحصائيات المشاركات</h3>
+            <div class="stats-cards">
+                <div class="stat-card">
+                    <h4 id="totalSubmissions">0</h4>
+                    <p>مشاركة حتى الآن</p>
+                </div>
+                <div class="stat-card">
+                    <h4 id="lastSubmission">-</h4>
+                    <p>آخر مشاركة</p>
+                </div>
+                <div class="stat-card">
+                    <h4 id="imagesInVideo">0</h4>
+                    <p>صورة في الفيديو القادم</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- تذييل الصفحة -->
+        <footer>
+            <p>© 2023 موقع استقبال الصور للأفيديوهات القادمة. جميع الحقوق محفوظة.</p>
+            <p>الصور والملاحظات المرسلة سيتم استخدامها في الفيديو القادم فقط.</p>
+        </footer>
+    </div>
+
+    <!-- نموذج التأكيد -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-check-circle"></i> تم الإرسال بنجاح!</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>شكراً لمشاركتك! تم استلام صورتك وتعليقك بنجاح.</p>
+                <p>سيتم استخدامها في الفيديو القادم إن شاء الله.</p>
+                <div class="modal-preview">
+                    <img id="modalImagePreview" src="" alt="معاينة الصورة">
+                    <p id="modalCommentPreview"></p>
+                </div>
+                <p class="modal-note">تم حفظ البيانات في Google Sheets برابط: <span id="sheetLink"></span></p>
+            </div>
+            <div class="modal-footer">
+                <button id="closeModalBtn">حسناً</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
