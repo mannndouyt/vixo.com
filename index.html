@@ -3,143 +3,298 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>موقع استقبال الصور للأفيديوت القادمة</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <title>موقع مخصص - هذا هوا الكود انسخه </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            text-align: center;
+            max-width: 800px;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 10;
+            animation: fadeIn 1.5s ease-out;
+        }
+        
+        .normal-text {
+            font-size: 4rem;
+            font-weight: 800;
+            letter-spacing: 4px;
+            background: linear-gradient(90deg, #00dbde, #fc00ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            line-height: 1.2;
+            margin-bottom: 40px;
+            word-wrap: break-word;
+        }
+        
+        .copy-btn {
+            background: linear-gradient(90deg, #00dbde, #fc00ff);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 0 auto;
+            letter-spacing: 1px;
+        }
+        
+        .copy-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+        
+        .copy-btn:active {
+            transform: translateY(1px);
+        }
+        
+        .copy-btn.copied {
+            background: linear-gradient(90deg, #4CAF50, #45a049);
+        }
+        
+        .notification {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: linear-gradient(90deg, #4CAF50, #45a049);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            transform: translateX(150%);
+            transition: transform 0.5s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .notification.show {
+            transform: translateX(0);
+        }
+        
+        .decoration {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .decoration:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 10%;
+            left: 5%;
+            background: rgba(0, 219, 222, 0.1);
+        }
+        
+        .decoration:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            bottom: 15%;
+            right: 10%;
+            background: rgba(252, 0, 255, 0.1);
+        }
+        
+        .decoration:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            top: 20%;
+            right: 15%;
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @media (max-width: 768px) {
+            .normal-text {
+                font-size: 2.5rem;
+                letter-spacing: 2px;
+            }
+            
+            .container {
+                padding: 30px 20px;
+            }
+            
+            .copy-btn {
+                padding: 12px 30px;
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .normal-text {
+                font-size: 2rem;
+                letter-spacing: 1px;
+            }
+            
+            .copy-btn {
+                padding: 10px 25px;
+                font-size: 1rem;
+            }
+            
+            .notification {
+                top: 20px;
+                right: 20px;
+                left: 20px;
+                text-align: center;
+                justify-content: center;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+    <!-- عناصر زخرفية -->
+    <div class="decoration"></div>
+    <div class="decoration"></div>
+    <div class="decoration"></div>
+    
+    <!-- المحتوى الرئيسي -->
     <div class="container">
-        <!-- رأس الصفحة -->
-        <header>
-            <h1><i class="fas fa-video"></i> موقع استقبال الصور للأفيديوهات القادمة</h1>
-            <p class="subtitle">أرسل صورتك لتظهر في الفيديو القادم</p>
-        </header>
-
-        <!-- قسم النص التوضيحي -->
-        <div class="hero-section">
-            <div class="hero-text">
-                <h2><i class="fas fa-cloud-upload-alt"></i> أرسل الصورة التي تريد أن تظهر في الفيديو القادم</h2>
-                <p>شارك صورتك مع تعليق أو فكرة إبداعية، وسنقوم بإدراجها في الفيديو القادم</p>
-            </div>
-            <div class="hero-icon">
-                <i class="fas fa-photo-video"></i>
-            </div>
-        </div>
-
-        <!-- نموذج الإرسال -->
-        <div class="form-container">
-            <div class="form-header">
-                <h3><i class="fas fa-upload"></i> ارفع صورتك واكتب ملاحظتك</h3>
-            </div>
-            <form id="uploadForm">
-                <!-- حقل رفع الصورة -->
-                <div class="form-group">
-                    <label for="imageUpload"><i class="fas fa-image"></i> اختر الصورة:</label>
-                    <div class="file-upload-area" id="dropArea">
-                        <i class="fas fa-cloud-upload-alt upload-icon"></i>
-                        <p>اسحب وأفلت صورتك هنا أو انقر للاختيار</p>
-                        <input type="file" id="imageUpload" accept="image/*" required>
-                        <div class="file-info" id="fileInfo"></div>
-                    </div>
-                    <div class="image-preview" id="imagePreview"></div>
-                </div>
-
-                <!-- حقل كتابة الملاحظة -->
-                <div class="form-group">
-                    <label for="comment"><i class="fas fa-comment-alt"></i> اكتب ملاحظتك أو فكرتك:</label>
-                    <textarea id="comment" placeholder="اكتب هنا تعليقك أو فكرتك الإبداعية للفيديو..." rows="4" required></textarea>
-                    <div class="char-counter">عدد الأحرف: <span id="charCount">0</span>/200</div>
-                </div>
-
-                <!-- زر الإرسال -->
-                <div class="form-group">
-                    <button type="submit" id="submitBtn">
-                        <i class="fas fa-paper-plane"></i> إرسال للمشاركة في الفيديو
-                    </button>
-                    <p class="form-note">بعد الإرسال، سيتم حفظ صورتك وتعليقك في قاعدة البيانات واستخدامها في الفيديو القادم.</p>
-                </div>
-            </form>
-
-            <!-- حالة الإرسال -->
-            <div id="statusMessage" class="status-message"></div>
-        </div>
-
-        <!-- قسم الإرشادات -->
-        <div class="instructions">
-            <h3><i class="fas fa-info-circle"></i> كيف تعمل المنصة؟</h3>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-icon">1</div>
-                    <h4>ارفع صورة</h4>
-                    <p>اختر صورة من جهازك بجودة مناسبة</p>
-                </div>
-                <div class="step">
-                    <div class="step-icon">2</div>
-                    <h4>اكتب تعليق</h4>
-                    <p>أضف ملاحظة أو فكرة إبداعية للفيديو</p>
-                </div>
-                <div class="step">
-                    <div class="step-icon">3</div>
-                    <h4>انقر إرسال</h4>
-                    <p>أرسل مشاركتك بكل سهولة</p>
-                </div>
-                <div class="step">
-                    <div class="step-icon">4</div>
-                    <h4>شارك في الفيديو</h4>
-                    <p>ستظهر صورتك وتعليقك في الفيديو القادم</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- قسم الإحصائيات (مثال) -->
-        <div class="stats">
-            <h3><i class="fas fa-chart-bar"></i> إحصائيات المشاركات</h3>
-            <div class="stats-cards">
-                <div class="stat-card">
-                    <h4 id="totalSubmissions">0</h4>
-                    <p>مشاركة حتى الآن</p>
-                </div>
-                <div class="stat-card">
-                    <h4 id="lastSubmission">-</h4>
-                    <p>آخر مشاركة</p>
-                </div>
-                <div class="stat-card">
-                    <h4 id="imagesInVideo">0</h4>
-                    <p>صورة في الفيديو القادم</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- تذييل الصفحة -->
-        <footer>
-            <p>© 2023 موقع استقبال الصور للأفيديوهات القادمة. جميع الحقوق محفوظة.</p>
-            <p>الصور والملاحظات المرسلة سيتم استخدامها في الفيديو القادم فقط.</p>
-        </footer>
+        <h1 class="normal-text">هذا هوا الكود انسخه وارسله الى البوت</h1>
+        <button class="copy-btn" id="copyButton">
+            <i class="far fa-copy"></i>
+            نسخ: T4@xP9!L#Q2mZ$A7fW8
+        </button>
     </div>
-
-    <!-- نموذج التأكيد -->
-    <div id="confirmationModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3><i class="fas fa-check-circle"></i> تم الإرسال بنجاح!</h3>
-                <span class="close-modal">&times;</span>
-            </div>
-            <div class="modal-body">
-                <p>شكراً لمشاركتك! تم استلام صورتك وتعليقك بنجاح.</p>
-                <p>سيتم استخدامها في الفيديو القادم إن شاء الله.</p>
-                <div class="modal-preview">
-                    <img id="modalImagePreview" src="" alt="معاينة الصورة">
-                    <p id="modalCommentPreview"></p>
-                </div>
-                <p class="modal-note">تم حفظ البيانات في Google Sheets برابط: <span id="sheetLink"></span></p>
-            </div>
-            <div class="modal-footer">
-                <button id="closeModalBtn">حسناً</button>
-            </div>
-        </div>
+    
+    <!-- إشعار النسخ -->
+    <div class="notification" id="notification">
+        <i class="fas fa-check-circle"></i>
+        تم نسخ "T4@xP9!L#Q2mZ$A7fW8" إلى الحافظة
     </div>
-
-    <script src="script.js"></script>
+    
+    <!-- تذييل الصفحة -->
+    <div class="footer">
+        تم إنشاء هذا الموقع بواسطة بوت تلجرام &copy; 2024
+    </div>
+    
+    <script>
+        // تأثير حركة بسيط للعناصر الزخرفية
+        document.addEventListener('mousemove', (e) => {
+            const decorations = document.querySelectorAll('.decoration');
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
+            
+            decorations.forEach((decoration, index) => {
+                const speed = (index + 1) * 0.5;
+                const x = (mouseX * speed * 20) - 10;
+                const y = (mouseY * speed * 20) - 10;
+                
+                decoration.style.transform = `translate(${x}px, ${y}px)`;
+            });
+        });
+        
+        // تأثير تدريجي لظهور النص
+        document.addEventListener('DOMContentLoaded', () => {
+            const normalText = document.querySelector('.normal-text');
+            const text = normalText.textContent;
+            normalText.textContent = '';
+            
+            for (let i = 0; i < text.length; i++) {
+                setTimeout(() => {
+                    normalText.textContent += text[i];
+                }, i * 50);
+            }
+        });
+        
+        // وظيفة نسخ النص
+        const copyButton = document.getElementById('copyButton');
+        const notification = document.getElementById('notification');
+        
+        copyButton.addEventListener('click', async () => {
+            const textToCopy = "T4@xP9!L#Q2mZ$A7fW8";
+            
+            try {
+                // استخدام Clipboard API الحديث
+                await navigator.clipboard.writeText(textToCopy);
+                
+                // تغيير مظهر الزر مؤقتًا
+                copyButton.classList.add('copied');
+                copyButton.innerHTML = '<i class="fas fa-check"></i> تم النسخ!';
+                
+                // عرض الإشعار
+                notification.classList.add('show');
+                
+                // إعادة الزر إلى حالته الأصلية بعد 2 ثانية
+                setTimeout(() => {
+                    copyButton.classList.remove('copied');
+                    copyButton.innerHTML = `<i class="far fa-copy"></i> نسخ: T4@xP9!L#Q2mZ$A7fW8`;
+                }, 2000);
+                
+                // إخفاء الإشعار بعد 3 ثوانٍ
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 3000);
+                
+            } catch (err) {
+                // الطريقة البديلة للأنظمة القديمة
+                const textArea = document.createElement('textarea');
+                textArea.value = textToCopy;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                // عرض رسالة نجاح حتى مع الطريقة القديمة
+                copyButton.classList.add('copied');
+                copyButton.innerHTML = '<i class="fas fa-check"></i> تم النسخ!';
+                notification.classList.add('show');
+                
+                setTimeout(() => {
+                    copyButton.classList.remove('copied');
+                    copyButton.innerHTML = `<i class="far fa-copy"></i> نسخ: T4@xP9!L#Q2mZ$A7fW8`;
+                }, 2000);
+                
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 3000);
+            }
+        });
+    </script>
 </body>
 </html>
