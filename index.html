@@ -1,300 +1,340 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>موقع مخصص - هذا هوا الكود انسخه </title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            color: #fff;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            position: relative;
-            overflow-x: hidden;
-        }
-        
-        .container {
-            text-align: center;
-            max-width: 800px;
-            padding: 40px;
-            background-color: rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            z-index: 10;
-            animation: fadeIn 1.5s ease-out;
-        }
-        
-        .normal-text {
-            font-size: 4rem;
-            font-weight: 800;
-            letter-spacing: 4px;
-            background: linear-gradient(90deg, #00dbde, #fc00ff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            line-height: 1.2;
-            margin-bottom: 40px;
-            word-wrap: break-word;
-        }
-        
-        .copy-btn {
-            background: linear-gradient(90deg, #00dbde, #fc00ff);
-            color: white;
-            border: none;
-            padding: 15px 40px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin: 0 auto;
-            letter-spacing: 1px;
-        }
-        
-        .copy-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-        }
-        
-        .copy-btn:active {
-            transform: translateY(1px);
-        }
-        
-        .copy-btn.copied {
-            background: linear-gradient(90deg, #4CAF50, #45a049);
-        }
-        
-        .notification {
-            position: fixed;
-            top: 30px;
-            right: 30px;
-            background: linear-gradient(90deg, #4CAF50, #45a049);
-            color: white;
-            padding: 15px 25px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            z-index: 1000;
-            transform: translateX(150%);
-            transition: transform 0.5s ease;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .notification.show {
-            transform: translateX(0);
-        }
-        
-        .decoration {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 50%;
-            z-index: 1;
-        }
-        
-        .decoration:nth-child(1) {
-            width: 80px;
-            height: 80px;
-            top: 10%;
-            left: 5%;
-            background: rgba(0, 219, 222, 0.1);
-        }
-        
-        .decoration:nth-child(2) {
-            width: 120px;
-            height: 120px;
-            bottom: 15%;
-            right: 10%;
-            background: rgba(252, 0, 255, 0.1);
-        }
-        
-        .decoration:nth-child(3) {
-            width: 60px;
-            height: 60px;
-            top: 20%;
-            right: 15%;
-            background: rgba(255, 255, 255, 0.05);
-        }
-        
-        .footer {
-            position: absolute;
-            bottom: 20px;
-            width: 100%;
-            text-align: center;
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 0.9rem;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        @media (max-width: 768px) {
-            .normal-text {
-                font-size: 2.5rem;
-                letter-spacing: 2px;
-            }
-            
-            .container {
-                padding: 30px 20px;
-            }
-            
-            .copy-btn {
-                padding: 12px 30px;
-                font-size: 1.1rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .normal-text {
-                font-size: 2rem;
-                letter-spacing: 1px;
-            }
-            
-            .copy-btn {
-                padding: 10px 25px;
-                font-size: 1rem;
-            }
-            
-            .notification {
-                top: 20px;
-                right: 20px;
-                left: 20px;
-                text-align: center;
-                justify-content: center;
-            }
-        }
-    </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>عيد مبارك - أسرة العميريني</title>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #f5d97a;
+      --gold-dark: #8b6914;
+      --cream: #fdf6e3;
+      --bg: #0b1c0e;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family:'Tajawal',sans-serif;
+      background: radial-gradient(ellipse at 50% 0%, #0d2e14 0%, #060f07 60%, #020702 100%);
+      min-height:100vh;
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      overflow-x:hidden;
+    }
+
+    /* Canvas fireworks */
+    #fw { position:fixed; inset:0; pointer-events:none; z-index:0; }
+
+    /* Stars */
+    .stars { position:fixed; inset:0; pointer-events:none; z-index:0; }
+    .star {
+      position:absolute; background:white; border-radius:50%;
+      animation:twinkle var(--d,3s) ease-in-out infinite; opacity:0;
+    }
+    @keyframes twinkle {
+      0%,100%{opacity:0;transform:scale(1)} 50%{opacity:var(--op,.7);transform:scale(1.5)}
+    }
+
+    /* Gold rope */
+    .rope {
+      position:fixed; top:0; left:0; right:0; height:3px;
+      background:linear-gradient(90deg,transparent 0%,var(--gold-dark) 10%,var(--gold-light) 30%,var(--gold) 50%,var(--gold-light) 70%,var(--gold-dark) 90%,transparent 100%);
+      z-index:3; opacity:.6;
+    }
+
+    /* Top decor */
+    .sky-bar {
+      position:fixed; top:8px; left:50%; transform:translateX(-50%);
+      z-index:4; display:flex; align-items:center; gap:14px; pointer-events:none;
+    }
+    .moon { font-size:40px; filter:drop-shadow(0 0 18px rgba(245,217,122,.8)); animation:sway 6s ease-in-out infinite; }
+    @keyframes sway { 0%,100%{transform:rotate(-8deg)} 50%{transform:rotate(8deg)} }
+    .sky-star { font-size:16px; opacity:.8; animation:spulse var(--d,2s) ease-in-out infinite alternate; filter:drop-shadow(0 0 6px rgba(245,217,122,.7)); }
+    @keyframes spulse { from{opacity:.4;transform:scale(.9)} to{opacity:1;transform:scale(1.1)} }
+
+    /* Hanging */
+    .hang { position:fixed; top:0; left:0; right:0; display:flex; justify-content:space-between; padding:0 8px; z-index:2; pointer-events:none; }
+    .hitem { display:flex; flex-direction:column; align-items:center; animation:hsway var(--s,4s) ease-in-out infinite alternate; transform-origin:top center; }
+    @keyframes hsway { from{transform:rotate(-5deg)} to{transform:rotate(5deg)} }
+    .hstring { width:1px; height:46px; background:linear-gradient(to bottom,rgba(201,168,76,.5),transparent); }
+    .hstar { font-size:20px; filter:drop-shadow(0 0 7px rgba(201,168,76,.6)); }
+
+    /* Card */
+    .card-outer { position:relative; z-index:5; margin:105px 16px 50px; max-width:460px; width:100%; }
+    .card {
+      background:linear-gradient(155deg,#0f2e18 0%,#091a0d 55%,#060e08 100%);
+      border:1px solid rgba(201,168,76,.4); border-radius:24px;
+      padding:44px 30px 36px; text-align:center; position:relative; overflow:hidden;
+      box-shadow:0 0 80px rgba(201,168,76,.1),0 40px 100px rgba(0,0,0,.7),inset 0 1px 0 rgba(201,168,76,.25);
+      animation:cardIn 1.4s cubic-bezier(.22,1,.36,1) both;
+    }
+    @keyframes cardIn { from{opacity:0;transform:translateY(50px) scale(.95)} to{opacity:1;transform:none} }
+    .corner { position:absolute; width:55px; height:55px; border-color:rgba(201,168,76,.4); border-style:solid; }
+    .c-tr{top:12px;right:12px;border-width:2px 2px 0 0;border-radius:0 10px 0 0;}
+    .c-tl{top:12px;left:12px;border-width:2px 0 0 2px;border-radius:10px 0 0 0;}
+    .c-br{bottom:12px;right:12px;border-width:0 2px 2px 0;border-radius:0 0 10px 0;}
+    .c-bl{bottom:12px;left:12px;border-width:0 0 2px 2px;border-radius:0 0 0 10px;}
+    .glow-bg {
+      position:absolute;inset:0;pointer-events:none;
+      background:
+        radial-gradient(ellipse 70% 30% at 50% 0%,rgba(201,168,76,.08) 0%,transparent 70%),
+        radial-gradient(ellipse 50% 20% at 50% 100%,rgba(27,67,50,.3) 0%,transparent 60%);
+    }
+
+    /* Badge */
+    .eid-badge {
+      display:inline-block;
+      background:linear-gradient(135deg,var(--gold-dark),var(--gold),var(--gold-dark));
+      padding:6px 28px; border-radius:30px;
+      font-family:'Amiri',serif; font-size:13px; color:var(--bg); font-weight:700; letter-spacing:3px;
+      margin-bottom:14px;
+      box-shadow:0 4px 22px rgba(201,168,76,.35);
+      animation:bpulse 3s ease-in-out infinite alternate;
+    }
+    @keyframes bpulse { from{box-shadow:0 4px 20px rgba(201,168,76,.3)} to{box-shadow:0 4px 38px rgba(201,168,76,.65)} }
+
+    .big-eid {
+      font-family:'Amiri',serif; font-size:60px; font-weight:700; line-height:1.1;
+      color:var(--gold-light);
+      text-shadow:0 0 30px rgba(245,217,122,.6),0 0 60px rgba(201,168,76,.3);
+      margin-bottom:4px;
+      animation:eglow 4s ease-in-out infinite alternate;
+    }
+    @keyframes eglow { from{text-shadow:0 0 20px rgba(245,217,122,.4)} to{text-shadow:0 0 55px rgba(245,217,122,.9),0 0 110px rgba(201,168,76,.4)} }
+
+    .sub-eid { font-family:'Amiri',serif; font-size:22px; color:rgba(245,217,122,.75); margin-bottom:6px; }
+
+    .divider { display:flex; align-items:center; gap:10px; margin:16px 0; opacity:.55; }
+    .dline { flex:1; height:1px; background:linear-gradient(to right,transparent,var(--gold),transparent); }
+    .dornament { color:var(--gold); font-size:15px; }
+
+    .to-label { font-size:14px; color:rgba(245,217,122,.6); margin-bottom:5px; }
+    .recipient-name {
+      font-family:'Amiri',serif; font-size:38px; font-weight:700;
+      color:#fff;
+      text-shadow:0 0 30px rgba(245,217,122,.5),0 2px 8px rgba(0,0,0,.6);
+      margin-bottom:18px; min-height:46px;
+      animation:npulse 4s ease-in-out infinite alternate;
+    }
+    @keyframes npulse { from{color:#fff;text-shadow:0 0 20px rgba(245,217,122,.4)} to{color:var(--gold-light);text-shadow:0 0 45px rgba(245,217,122,.9)} }
+
+    .greeting-body {
+      font-family:'Amiri',serif; font-size:19px; line-height:2.1;
+      color:var(--cream); opacity:.9; margin-bottom:18px;
+    }
+    .hl { color:var(--gold-light); font-size:22px; display:block; }
+
+    .signature { font-family:'Amiri',serif; font-size:18px; color:var(--gold); margin-top:4px; opacity:.85; }
+
+    /* Input */
+    .input-section { margin-top:26px; padding-top:22px; border-top:1px solid rgba(201,168,76,.15); }
+    .input-label { font-size:13px; color:rgba(245,217,122,.55); margin-bottom:10px; display:block; }
+    .name-row { display:flex; gap:9px; direction:rtl; }
+    .name-input {
+      flex:1; background:rgba(255,255,255,.04); border:1px solid rgba(201,168,76,.3);
+      border-radius:10px; padding:12px 14px; color:var(--cream);
+      font-family:'Tajawal',sans-serif; font-size:15px; outline:none;
+      transition:border-color .2s,box-shadow .2s; text-align:right;
+    }
+    .name-input::placeholder { color:rgba(255,255,255,.22); }
+    .name-input:focus { border-color:var(--gold); box-shadow:0 0 0 3px rgba(201,168,76,.15); }
+    .gen-btn {
+      background:linear-gradient(135deg,var(--gold-dark),var(--gold));
+      border:none; border-radius:10px; padding:12px 18px;
+      color:var(--bg); font-family:'Tajawal',sans-serif; font-weight:700; font-size:14px;
+      cursor:pointer; white-space:nowrap; transition:transform .15s,box-shadow .15s;
+    }
+    .gen-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(201,168,76,.35);}
+    .gen-btn:active{transform:scale(.97);}
+
+    .link-box { display:none; margin-top:13px; background:rgba(255,255,255,.03); border:1px solid rgba(201,168,76,.2); border-radius:10px; padding:11px 13px; direction:ltr; }
+    .link-box.show{display:flex;align-items:center;gap:8px;}
+    .link-text{flex:1;font-size:11px;color:rgba(245,217,122,.65);word-break:break-all;text-align:left;}
+    .copy-btn{background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.3);border-radius:6px;padding:6px 10px;color:var(--gold-light);font-size:12px;cursor:pointer;white-space:nowrap;transition:background .2s;font-family:'Tajawal',sans-serif;}
+    .copy-btn:hover{background:rgba(201,168,76,.3);}
+
+    .wa-btn {
+      display:flex;align-items:center;justify-content:center;gap:10px;
+      width:100%;margin-top:13px;padding:14px;
+      background:linear-gradient(135deg,#075e54,#25d366);
+      border:none;border-radius:12px;color:white;
+      font-family:'Tajawal',sans-serif;font-weight:700;font-size:16px;
+      cursor:pointer;text-decoration:none;
+      transition:transform .15s,box-shadow .15s;
+      box-shadow:0 4px 22px rgba(37,211,102,.3);
+    }
+    .wa-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(37,211,102,.45);}
+    .wa-btn:active{transform:scale(.98);}
+
+    /* Floaters */
+    .floater{position:fixed;pointer-events:none;z-index:1;animation:floatUp linear infinite;}
+    @keyframes floatUp{0%{transform:translateY(0) rotate(0deg) scale(1);opacity:.7}100%{transform:translateY(-110vh) rotate(360deg) scale(.3);opacity:0}}
+
+    /* Toast */
+    .toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(60px);background:rgba(15,46,24,.95);border:1px solid var(--gold);color:var(--gold-light);font-family:'Tajawal',sans-serif;padding:12px 26px;border-radius:30px;font-size:14px;transition:transform .3s,opacity .3s;opacity:0;z-index:99;white-space:nowrap;}
+    .toast.show{transform:translateX(-50%) translateY(0);opacity:1;}
+
+    @media(max-width:400px){
+      .big-eid{font-size:44px} .recipient-name{font-size:30px}
+      .greeting-body{font-size:16px} .card{padding:34px 18px 30px}
+    }
+  </style>
 </head>
 <body>
-    <!-- عناصر زخرفية -->
-    <div class="decoration"></div>
-    <div class="decoration"></div>
-    <div class="decoration"></div>
-    
-    <!-- المحتوى الرئيسي -->
-    <div class="container">
-        <h1 class="normal-text">هذا هوا الكود انسخه وارسله الى البوت</h1>
-        <button class="copy-btn" id="copyButton">
-            <i class="far fa-copy"></i>
-            نسخ: T4@xP9!L#Q2mZ$A7fW8
-        </button>
+
+<canvas id="fw"></canvas>
+<div class="stars" id="stars"></div>
+<div class="rope"></div>
+
+<div class="sky-bar">
+  <span class="sky-star" style="--d:2.2s">✦</span>
+  <span class="sky-star" style="--d:3s">✧</span>
+  <span class="moon">☪️</span>
+  <span class="sky-star" style="--d:2.8s">✧</span>
+  <span class="sky-star" style="--d:1.8s">✦</span>
+</div>
+
+<div class="hang" id="hang"></div>
+
+<div class="card-outer">
+  <div class="card">
+    <div class="glow-bg"></div>
+    <div class="corner c-tr"></div><div class="corner c-tl"></div>
+    <div class="corner c-br"></div><div class="corner c-bl"></div>
+
+    <div class="eid-badge">✦ تهنئة العيد ✦</div>
+    <div class="big-eid">عيد مبارك</div>
+    <div class="sub-eid">وكل عام وأنتم بخير</div>
+
+    <div class="divider"><div class="dline"></div><span class="dornament">❋</span><div class="dline"></div></div>
+
+    <div class="to-label">تُقدِّم أسرة العميريني أحرّ تهانيها إلى</div>
+    <div class="recipient-name" id="recipientName">الأحباب والأصدقاء</div>
+
+    <div class="greeting-body">
+      بمناسبة حلول عيد الفطر المبارك<br/>
+      نتقدّم إليكم بأصدق التهاني وأعطر الأمنيات<br/>
+      <span class="hl">تقبّل الله منّا ومنكم صالح الأعمال</span>
+      وأعاده عليكم بالصحة والسعادة والخير
     </div>
-    
-    <!-- إشعار النسخ -->
-    <div class="notification" id="notification">
-        <i class="fas fa-check-circle"></i>
-        تم نسخ "T4@xP9!L#Q2mZ$A7fW8" إلى الحافظة
+
+    <div class="divider"><div class="dline"></div><span class="dornament">❋</span><div class="dline"></div></div>
+    <div class="signature">✦ أسرة العميريني ✦</div>
+
+    <div class="input-section">
+      <span class="input-label">🔗 أنشئ رابطاً مخصصاً لشخص ما</span>
+      <div class="name-row">
+        <input class="name-input" id="nameInput" type="text" placeholder="أدخل الاسم هنا..." maxlength="40" />
+        <button class="gen-btn" onclick="generateLink()">إنشاء</button>
+      </div>
+      <div class="link-box" id="linkBox">
+        <span class="link-text" id="linkText"></span>
+        <button class="copy-btn" onclick="copyLink()">نسخ</button>
+      </div>
+      <a class="wa-btn" href="#" onclick="shareWhatsApp(event)">
+        <span style="font-size:22px">📲</span>
+        مشاركة عبر واتساب
+      </a>
     </div>
-    
-    <!-- تذييل الصفحة -->
-    <div class="footer">
-        تم إنشاء هذا الموقع بواسطة بوت تلجرام &copy; 2024
-    </div>
-    
-    <script>
-        // تأثير حركة بسيط للعناصر الزخرفية
-        document.addEventListener('mousemove', (e) => {
-            const decorations = document.querySelectorAll('.decoration');
-            const mouseX = e.clientX / window.innerWidth;
-            const mouseY = e.clientY / window.innerHeight;
-            
-            decorations.forEach((decoration, index) => {
-                const speed = (index + 1) * 0.5;
-                const x = (mouseX * speed * 20) - 10;
-                const y = (mouseY * speed * 20) - 10;
-                
-                decoration.style.transform = `translate(${x}px, ${y}px)`;
-            });
-        });
-        
-        // تأثير تدريجي لظهور النص
-        document.addEventListener('DOMContentLoaded', () => {
-            const normalText = document.querySelector('.normal-text');
-            const text = normalText.textContent;
-            normalText.textContent = '';
-            
-            for (let i = 0; i < text.length; i++) {
-                setTimeout(() => {
-                    normalText.textContent += text[i];
-                }, i * 50);
-            }
-        });
-        
-        // وظيفة نسخ النص
-        const copyButton = document.getElementById('copyButton');
-        const notification = document.getElementById('notification');
-        
-        copyButton.addEventListener('click', async () => {
-            const textToCopy = "T4@xP9!L#Q2mZ$A7fW8";
-            
-            try {
-                // استخدام Clipboard API الحديث
-                await navigator.clipboard.writeText(textToCopy);
-                
-                // تغيير مظهر الزر مؤقتًا
-                copyButton.classList.add('copied');
-                copyButton.innerHTML = '<i class="fas fa-check"></i> تم النسخ!';
-                
-                // عرض الإشعار
-                notification.classList.add('show');
-                
-                // إعادة الزر إلى حالته الأصلية بعد 2 ثانية
-                setTimeout(() => {
-                    copyButton.classList.remove('copied');
-                    copyButton.innerHTML = `<i class="far fa-copy"></i> نسخ: T4@xP9!L#Q2mZ$A7fW8`;
-                }, 2000);
-                
-                // إخفاء الإشعار بعد 3 ثوانٍ
-                setTimeout(() => {
-                    notification.classList.remove('show');
-                }, 3000);
-                
-            } catch (err) {
-                // الطريقة البديلة للأنظمة القديمة
-                const textArea = document.createElement('textarea');
-                textArea.value = textToCopy;
-                document.body.appendChild(textArea);
-                textArea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textArea);
-                
-                // عرض رسالة نجاح حتى مع الطريقة القديمة
-                copyButton.classList.add('copied');
-                copyButton.innerHTML = '<i class="fas fa-check"></i> تم النسخ!';
-                notification.classList.add('show');
-                
-                setTimeout(() => {
-                    copyButton.classList.remove('copied');
-                    copyButton.innerHTML = `<i class="far fa-copy"></i> نسخ: T4@xP9!L#Q2mZ$A7fW8`;
-                }, 2000);
-                
-                setTimeout(() => {
-                    notification.classList.remove('show');
-                }, 3000);
-            }
-        });
-    </script>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* Stars */
+const starsEl=document.getElementById('stars');
+for(let i=0;i<80;i++){
+  const s=document.createElement('div');s.className='star';
+  const sz=Math.random()*2.5+.5;
+  s.style.cssText=`width:${sz}px;height:${sz}px;top:${Math.random()*100}%;left:${Math.random()*100}%;--d:${(Math.random()*4+2).toFixed(1)}s;--op:${(Math.random()*.5+.2).toFixed(2)};animation-delay:${(Math.random()*5).toFixed(1)}s`;
+  starsEl.appendChild(s);
+}
+
+/* Hanging */
+const hangEl=document.getElementById('hang');
+const hc=window.innerWidth<480?5:9;
+for(let i=0;i<hc;i++){
+  hangEl.innerHTML+=`<div class="hitem" style="--s:${(Math.random()*3+3).toFixed(1)}s;animation-delay:${(i*.35).toFixed(1)}s"><div class="hstring"></div><span class="hstar">${['⭐','🌟','✨','💫'][i%4]}</span></div>`;
+}
+
+/* Floaters */
+const fsym=['🌙','⭐','✨','🌟','💫','🌺','🎊'];
+for(let i=0;i<14;i++){
+  const f=document.createElement('div');f.className='floater';
+  f.textContent=fsym[Math.floor(Math.random()*fsym.length)];
+  f.style.cssText=`left:${Math.random()*100}%;bottom:${Math.random()*10-5}px;animation-duration:${(Math.random()*14+10).toFixed(1)}s;animation-delay:${(Math.random()*12).toFixed(1)}s;font-size:${Math.random()*12+12}px`;
+  document.body.appendChild(f);
+}
+
+/* Fireworks */
+const canvas=document.getElementById('fw');
+const ctx=canvas.getContext('2d');
+function rsz(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;}
+rsz();window.addEventListener('resize',rsz);
+const pts=[];
+class P{
+  constructor(x,y,c){
+    this.x=x;this.y=y;this.c=c;
+    const a=Math.random()*Math.PI*2,sp=Math.random()*4+1;
+    this.vx=Math.cos(a)*sp;this.vy=Math.sin(a)*sp;
+    this.life=1;this.dc=Math.random()*.025+.01;this.r=Math.random()*3+1;
+  }
+  upd(){this.x+=this.vx;this.y+=this.vy;this.vy+=.05;this.life-=this.dc;}
+  drw(){ctx.save();ctx.globalAlpha=this.life;ctx.fillStyle=this.c;ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fill();ctx.restore();}
+}
+const fwc=['#f5d97a','#c9a84c','#fff','#ffaa00','#ff6600','#00ddaa','#ffd700'];
+function burst(){
+  const x=Math.random()*canvas.width;
+  const y=Math.random()*(canvas.height*.5);
+  const c=fwc[Math.floor(Math.random()*fwc.length)];
+  for(let i=0;i<50;i++)pts.push(new P(x,y,c));
+}
+setInterval(burst,2200);
+(function anim(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  for(let i=pts.length-1;i>=0;i--){pts[i].upd();pts[i].drw();if(pts[i].life<=0)pts.splice(i,1);}
+  requestAnimationFrame(anim);
+})();
+
+/* URL name */
+(function(){
+  const p=new URLSearchParams(window.location.search);
+  const n=p.get('to')||p.get('name')||'';
+  if(n)document.getElementById('recipientName').textContent=decodeURIComponent(n);
+})();
+
+/* Generate */
+let currentLink='';
+function generateLink(){
+  const name=document.getElementById('nameInput').value.trim();
+  if(!name){showToast('⚠️ يرجى إدخال الاسم أولاً');return;}
+  const base=window.location.origin+window.location.pathname;
+  currentLink=`${base}?to=${encodeURIComponent(name)}`;
+  document.getElementById('linkText').textContent=currentLink;
+  document.getElementById('linkBox').classList.add('show');
+  document.getElementById('recipientName').textContent=name;
+  showToast('✅ تم إنشاء الرابط!');
+}
+function copyLink(){
+  if(!currentLink)return;
+  navigator.clipboard.writeText(currentLink).then(()=>showToast('📋 تم نسخ الرابط!'));
+}
+function shareWhatsApp(e){
+  e.preventDefault();
+  const name=document.getElementById('nameInput').value.trim();
+  const link=currentLink||window.location.href;
+  const msg=name
+    ?`عيد مبارك وكل عام وأنت بخير 🌙⭐\nتهنئة خاصة لـ ${name} من أسرة العميريني\n${link}`
+    :`عيد مبارك وكل عام وأنتم بخير 🌙⭐\nمن أسرة العميريني\n${link}`;
+  window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank');
+}
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2500);
+}
+document.getElementById('nameInput').addEventListener('keydown',e=>{if(e.key==='Enter')generateLink();});
+</script>
 </body>
 </html>
